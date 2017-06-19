@@ -19,11 +19,17 @@ io.on('connection', function(socket){
   });
 
   socket.on('msgParaServidor',function(data){
-    console.log(data);
+    
     socket.emit('msgParaCliente', data);
     socket.broadcast.emit('msgParaCliente', data);
+
+    console.log(parseInt(data.apelido_atualizado_nos_clientes));
+    //Atualizar participantes
+    if(parseInt(data.apelido_atualizado_nos_clientes) == 0){
+      socket.emit('participantesParaCliente', data);
+      socket.broadcast.emit('participantesParaCliente', data);
+    }
+     
   });
-  
-  
 
 });
