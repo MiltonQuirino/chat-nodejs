@@ -23,7 +23,6 @@ io.on('connection', function(socket){
     socket.emit('msgParaCliente', data);
     socket.broadcast.emit('msgParaCliente', data);
 
-    console.log(parseInt(data.apelido_atualizado_nos_clientes));
     //Atualizar participantes
     if(parseInt(data.apelido_atualizado_nos_clientes) == 0){
       socket.emit('participantesParaCliente', data);
