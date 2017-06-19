@@ -18,4 +18,12 @@ io.on('connection', function(socket){
     console.log('usuario desconectou');
   });
 
+  socket.on('msgParaServidor',function(data){
+    console.log(data);
+    socket.emit('msgParaCliente', data);
+    socket.broadcast.emit('msgParaCliente', data);
+  });
+  
+  
+
 });
