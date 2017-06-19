@@ -126,6 +126,7 @@
 				);
 
 				$('#apelido_atualizado_nos_clientes').val(1);
+				$('#mensagem').val('');
 						
 			});
 
@@ -138,6 +139,7 @@
 				html += '</div>';
 
 				$('#dialogos').append(html);
+				window.scroll(0,document.body.scrollHeight);
 			});
 
 			socket.on('participantesParaCliente',function(data){
